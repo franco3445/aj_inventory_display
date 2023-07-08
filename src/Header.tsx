@@ -9,9 +9,23 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import StarIcon from '@mui/icons-material/Star';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
 
 import * as React from 'react';
-import AdaptiveImage from 'react-adaptive-image';
+import {red} from '@mui/material/colors';
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            // Purple and green play nicely together.
+            main: red[800],
+        },
+        secondary: {
+            // This is green.A700 as hex.
+            main: '#11cb5f',
+        },
+    },
+});
 
 const pages = ['Home', 'Services', 'About', 'Contact'];
 
@@ -26,9 +40,11 @@ function Header() {
         setAnchorElNav(null);
     };
 
+    const resizeString = `"${require('./img/ajBanner.jpg')} 300w, ${require('./img/ajBanner.jpg')} 768w, ${require('./img/ajBanner.jpg')} 1155w"`
+
     return (
-        <div>
-            <AppBar position="static">
+        <ThemeProvider theme={theme}>
+            <AppBar color="primary" position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <StarIcon fontSize="large" sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -103,7 +119,7 @@ function Header() {
                                 textDecoration: 'none',
                             }}
                         >
-                            LOGO
+                            AJ Rental
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {pages.map((page) => (
@@ -119,7 +135,13 @@ function Header() {
                     </Toolbar>
                 </Container>
             </AppBar>
-        </div>
+            <img
+                alt="aj_banner"
+                srcSet={`${resizeString}`}
+                src={require('./img/ajBanner.jpg')}
+                sizes="(max-width: 300px) 300px, (max-width: 768px) 768px, 1155px"
+            />
+        </ThemeProvider>
     );
 }
 export default Header;
