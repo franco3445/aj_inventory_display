@@ -11,7 +11,6 @@ import IconButton, {IconButtonProps} from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {equipmentListArray} from "../src/EquipmentList.tsx";
-// Todo:spacing
 // Todo: indivdual clicking
 // Todo: individual contact buttons
 
@@ -41,7 +40,7 @@ export default function Equipment() {
             <Grid container justifyContent="center" spacing={4}>
                 {equipmentListArray.map(pieceOfEquipment => {
                     return (
-                        <Grid item key={pieceOfEquipment.id} md={4}>
+                        <Grid item key={pieceOfEquipment.id}>
                             <Card sx={{ maxWidth: 500 }}>
                             <CardHeader
                                 title={`Model: ${pieceOfEquipment.title}`}
