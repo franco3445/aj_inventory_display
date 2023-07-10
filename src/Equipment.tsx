@@ -14,7 +14,6 @@ import {equipmentListArray} from "../src/EquipmentList.tsx";
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
 }
-console.log(equipmentListArray)
 const ExpandMore = styled((props: ExpandMoreProps) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
