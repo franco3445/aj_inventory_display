@@ -134,7 +134,6 @@ function Header() {
                     </Toolbar>
                 </Container>
             </AppBar>
-            <Equipment/>
         </ThemeProvider>
     );
 }
