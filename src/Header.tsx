@@ -12,17 +12,16 @@ import StarIcon from '@mui/icons-material/Star';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 
 import * as React from 'react';
-import {red} from '@mui/material/colors';
+import {red, blue} from '@mui/material/colors';
+import Equipment from '../src/Equipment.tsx'
 
 const theme = createTheme({
     palette: {
         primary: {
-            // Purple and green play nicely together.
             main: red[800],
         },
         secondary: {
-            // This is green.A700 as hex.
-            main: '#11cb5f',
+            main: blue[500],
         },
     },
 });
@@ -135,12 +134,7 @@ function Header() {
                     </Toolbar>
                 </Container>
             </AppBar>
-            <img
-                alt="aj_banner"
-                srcSet={`${resizeString}`}
-                src={require('./img/ajBanner.jpg')}
-                sizes="(max-width: 300px) 300px, (max-width: 768px) 768px, 1155px"
-            />
+            <Equipment/>
         </ThemeProvider>
     );
 }
