@@ -13,7 +13,6 @@ import {createTheme, ThemeProvider} from '@mui/material/styles';
 
 import * as React from 'react';
 import {red, blue} from '@mui/material/colors';
-import Equipment from '../src/Equipment.tsx'
 
 const theme = createTheme({
     palette: {
@@ -134,7 +133,6 @@ function Header() {
                     </Toolbar>
                 </Container>
             </AppBar>
-            <Equipment/>
         </ThemeProvider>
     );
 }
