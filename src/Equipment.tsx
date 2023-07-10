@@ -1,15 +1,19 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import Grid from '@mui/material/Grid';
+import IconButton, {IconButtonProps} from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {equipmentListArray} from "../src/EquipmentList.tsx";
+// Todo:spacing
+// Todo: indivdual clicking
+// Todo: individual contact buttons
 
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -34,9 +38,11 @@ export default function Equipment() {
 
     return (
         <div>
-            {equipmentListArray.map(pieceOfEquipment => {
-                return (
-                        <Card sx={{ maxWidth: 500 }} key={pieceOfEquipment.id}>
+            <Grid container justifyContent="center" spacing={4}>
+                {equipmentListArray.map(pieceOfEquipment => {
+                    return (
+                        <Grid item key={pieceOfEquipment.id} md={4}>
+                            <Card sx={{ maxWidth: 500 }}>
                             <CardHeader
                                 title={`Model: ${pieceOfEquipment.title}`}
                                 subheader={`Date Uploaded: ${pieceOfEquipment.dateUploaded}`}
@@ -77,8 +83,10 @@ export default function Equipment() {
                                 </CardContent>
                             </Collapse>
                         </Card>
+                    </Grid>
                     )
-            })}
+                })}
+            </Grid>
         </div>
     );
 }
